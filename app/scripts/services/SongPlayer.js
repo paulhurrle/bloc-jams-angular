@@ -27,6 +27,14 @@
             currentBuzzObject.bind('timeupdate', function() {
                  $rootScope.$apply(function() {
                      SongPlayer.currentTime = currentBuzzObject.getTime();
+// I need to play the next song (SongPlayer.next() method) once the current song ends (currentBuzzObject.isEnded() method)
+// until I have reached the last song in the album
+                     var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+                     while (currentSongIndex < currentAlbum.length - 1) {
+                         if (currentBuzzObject.isEnded()) {
+                             SongPlayer.next();
+                         }
+                     }
                  });
              });
 
