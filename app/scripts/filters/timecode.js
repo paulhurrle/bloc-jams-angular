@@ -6,8 +6,10 @@
              if (Number.isNaN(seconds)) {
                  return '-:--';
              }
-
-             var wholeSeconds = Math.floor(seconds);
+             var timer = buzz.toTimer(seconds);
+             return timer;
+         };
+/*             var wholeSeconds = Math.floor(seconds);
              var minutes = Math.floor(wholeSeconds / 60);
              var remainingSeconds = wholeSeconds % 60;
 
@@ -21,6 +23,7 @@
 
              return output;
          };
+*/
      }
 
      angular
