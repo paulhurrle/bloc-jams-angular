@@ -31,7 +31,7 @@
              });
 
             SongPlayer.currentSong = song;
-            SongPlayer.setVolume(SongPlayer.volume);
+            SongPlayer.setVolume(SongPlayer.volume); // added this call so that the volume does not reset after each song change
           };
 
           /**
