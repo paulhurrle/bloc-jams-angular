@@ -27,13 +27,8 @@
             currentBuzzObject.bind('timeupdate', function() {
                  $rootScope.$apply(function() {
                      SongPlayer.currentTime = currentBuzzObject.getTime();
-// I need to play the next song (SongPlayer.next() method) once the current song ends (currentBuzzObject.isEnded() method)
-// until I have reached the last song in the album
-                     var currentSongIndex = getSongIndex(SongPlayer.currentSong);
-                     while (currentSongIndex < currentAlbum.length - 1) {
-                         if (currentBuzzObject.isEnded()) {
-                             SongPlayer.next();
-                         }
+                     if (currentBuzzObject.isEnded()) { // added autoplay feature so next song will automatically play until reaching final song in album
+                         SongPlayer.next();
                      }
                  });
              });
@@ -102,7 +97,7 @@
           * @param {Object} song
           */
           SongPlayer.play = function(song) {
-             song = song || SongPlayer.currentSong;
+             song = song || SongPlayer.currentSong || currentAlbum.songs[0];
              if (SongPlayer.currentSong !== song) {
                  setSong(song);
                  playSong(song);
@@ -132,6 +127,10 @@
          SongPlayer.previous = function() {
              var currentSongIndex = getSongIndex(SongPlayer.currentSong);
              currentSongIndex--;
+
+             if (SongPlayer.currentSong == null) { // added conditional to prevent error being thrown when user clicks 'previous' on page load before current song is loaded
+                 return;
+             }
 
              if (currentSongIndex < 0) {
                  stopSong(SongPlayer.currentSong);
@@ -178,6 +177,17 @@
          SongPlayer.setVolume = function(volume) {
              currentBuzzObject.setVolume(volume);
              SongPlayer.volume = volume;
+         };
+
+         /**
+         * @function mute
+         * @desc Toggle between mute and unmute for current song using Buzz method
+         */
+         SongPlayer.mute = function() {
+             if (currentBuzzObject == null ) { // prevents an error from being thrown when user attempts to mute a song before one has loaded
+                 return;
+             }
+             currentBuzzObject.toggleMute();
          };
 
          return SongPlayer;
