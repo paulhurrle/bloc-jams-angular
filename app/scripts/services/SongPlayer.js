@@ -35,6 +35,12 @@
 
             SongPlayer.currentSong = song;
             SongPlayer.setVolume(SongPlayer.volume); // added this call so that the volume does not reset after each song change
+
+            if (SongPlayer.muted == true) { // added this conditional to maintain initial mute or unmute state when new song loads
+                currentBuzzObject.mute();
+            } else {
+                currentBuzzObject.unmute();
+            }
           };
 
           /**
@@ -80,16 +86,22 @@
           SongPlayer.currentSong = null;
 
          /**
-         * @desc Current playback time (in seconds) of currently playing song
+         * @desc Public variable that stores current playback time (in seconds) of currently playing song
          * @type {Number}
          */
          SongPlayer.currentTime = null;
 
          /**
-         * @desc Current volume of song
+         * @desc Public variable that stores current volume of song
          * @type {Number}
          */
          SongPlayer.volume = 30;
+
+         /**
+         * @desc Public variable that stores the muted state of the currentBuzzObject
+         * @type {Number}
+         */
+         SongPlayer.muted = false;
 
           /**
           * @function SongPlayer.play
@@ -160,7 +172,7 @@
 
          /**
          * @function setCurrentTime
-         * @desc Set current time (in seconds) of currently playing song
+         * @desc Public method that sets current time (in seconds) of currently playing song
          * @param {Number} time
          */
          SongPlayer.setCurrentTime = function(time) {
@@ -171,7 +183,7 @@
 
          /**
          * @function setVolume
-         * @desc Set current volume of currently playing song and update public SongPlayer.volume variable
+         * @desc Public method that sets volume of currently playing song and updates public SongPlayer.volume variable
          * @param {Number} volume
          */
          SongPlayer.setVolume = function(volume) {
@@ -181,13 +193,20 @@
 
          /**
          * @function mute
-         * @desc Toggle between mute and unmute for current song using Buzz method
+         * @desc Public method that mutes or unmutes current song based on state of public SongPlayer.muted variable
          */
          SongPlayer.mute = function() {
              if (currentBuzzObject == null ) { // prevents an error from being thrown when user attempts to mute a song before one has loaded
                  return;
              }
-             currentBuzzObject.toggleMute();
+
+             if (SongPlayer.muted == false) {
+                 currentBuzzObject.mute();
+                 SongPlayer.muted = true;
+             } else {
+                 currentBuzzObject.unmute();
+                 SongPlayer.muted = false;
+             }
          };
 
          return SongPlayer;
