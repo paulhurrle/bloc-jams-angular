@@ -1,107 +1,43 @@
-## Bloc Frontend Project Starter
+<img src="/assets/images/blocjams.png" alt='Jangle Mobile App'>
 
-A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
+## Explanation
 
-## Pull Down the Code
+This was my first web development project that would initially test my aptitude to build an app using HTML, CSS, and native JavaScript. Later I would need to refactor the app by integrating jQuery’s library, and then totally rebuild the app using AngularJS.
 
-Start by cloning the repository:
+## Problem
 
-```
-$ git clone https://github.com/Bloc/bloc-frontend-project-starter.git <your-frontend-project-name>
-```
+This project required the building of a Spotify-like app with the capability of displaying album collections and playing audio files. Phase I of the project would involve using native JavaScript to apply all interactivity throughout the site. Phase II would integrate jQuery’s extensive library to refactor much of the existing JavaScript. In Phase III, the entire project would need to be refactored again, this time from the ground up using AngularJS.
 
-## Reset Git
+## Solution
 
-This will be your personal project. So all of the past commit history that we used to build this starter app aren't needed. Also you will want to be able to push/pull code from your personal remote (Github) repository and NOT Bloc's remote (Github) repository.
+Throughout the project, I used an editor, Atom, to build the backbone of the application, implement styling and responsiveness with CSS, and add interactivity using JavaScript, jQuery, or AngularJS. A landing page, collections page, and album page were created in Phases I and II, which were replaced by templates in Phase III.
 
-Remove the existing local Git repository:
+<em>Phase I: Native JavaScript</em>
 
-```
-$ rm -r -f .git
-```
+<img src="/assets/images/bloc-jams-JS.png" alt='Jangle JavaScript'>
 
-Initialize a new Git repository, add all of these existing files, and commit them:
+<em>Phase II: jQuery</em>
 
-```
-$ git init
-$ git add .
-$ git commit -m "initial commit"
-```
+<img src="/assets/images/bloc-jams-jQ.png" alt='Jangle jQuery'>
 
-Go to Github and create a new repository. Add that new repository as the proper remote. Then push your initial commit.
+<em>Phase III: AngularJS</em>
 
-```
-$ git remote add origin <URL TO NEW GITHUB REPO>
-$ git push origin master
-```
+<p>Home.html Template</p>
 
-## Configuration
+<img src="/assets/images/bloc-jams-angular-1.png" alt='Jangle Angular Template'>
 
-The project uses Node to run a JS server in development. This will be important when we want to use urls /album or /collection instead of the basic album.html or collection.html. It may  help to review [our resource on NPM and `package.json` files](https://www.bloc.io/resources/npm-and-package-json).
+<p>Home Controller</p>
 
-Install the project dependencies by running:
+<img src="/assets/images/bloc-jams-angular-2.png" alt='Jangle Angular Controller'>
 
-```
-$ npm install
-```
+No music player would be complete without the ability to play audio files.
 
-## Run the Application
+<img src="/assets/images/bloc-jams-JS-player.png">
 
-Run the application server:
+## Results
 
-```
-$ npm start
-```
+Regular testing of the app was conducted through the use of browser developer tools. With the help of an experienced front-end developer, I assessed limitations of the app and discovered several ways to enhance usability.
 
-The server will start up. To stop the server, press `cntrl + c`.
+## Conclusion
 
-
-## Use in Brackets Live Preview
-
-To use the application with the Live Preview functionality of the Brackets text editor, go to __File > Project Settings__ and add `http://localhost:3000` to the Base URL field.
-
-![Screenshot of project settings URL in Brackets](https://bloc-global-assets.s3.amazonaws.com/images-frontend/screenshots/bloc-frontend-project-starter/live_preview_project_settings.png)
-
-The text in the application will not update on every keystroke, but changes will automatically push when you save the file.
-
-## Directory Structure
-
-```
-├── LICENSE
-├── README.md
-├── app
-│   ├── assets
-│   │   └── images
-│   │       └── bloc-logo-white.png
-│   ├── pages
-│   │   └── index.html
-│   ├── scripts
-│   │   └── app.js
-│   ├── styles
-│   │   └── style.css
-│   └── templates
-│       └── home.html
-├── package.json
-└── server.js
-```
-
-
-### Assets/Images
-
-Add images to the `app/assets/images` directory. To reference images in HTML, use the path `/assets/images/<image file name>.jpg`. For example, to include the image called `bloc-white-logo.png`, the path for the `src` attribute in the HTML would be:
-
-```html
-<img src="/assets/images/bloc-white-logo.png">
-```
-
-__Note:__ A sample image has been added to `app/images`. To remove the image from the application, run the following command from the root of repo:
-
-```bash
-$ rm -f app/assets/images/bloc-white-logo.png
-```
-
-To reference any other assets, like the music in Bloc Jams, use the path `assets/<asset-type>/<asset-file-name>`.
-
-### Difference between Pages and Templates
-
-The `templates` directory should hold any HTML files used as templates in Angular states configured by UI Router. All other HTML files belong in the `pages` directory.
+Each phase of this project introduced several new challenges and afforded me opportunities to grow as a developer. One of the significant moments for me was understanding how native JavaScript and jQuery compare in terms of utility, intuitiveness, and their popularity throughout the web development community. Refactoring the project using AngularJS exposed an entirely new framework for building web apps as Single Page Applications (SPAs). The Model-View-Controller concept was both challenging and rewarding in terms of embracing a new perspective of isolating the page content from the methods and properties that make it work. This learning experience prepares me to tackle with confidence any projects in the future that require a new framework or different methodology than what I used previously.
