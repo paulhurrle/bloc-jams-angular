@@ -1,4 +1,4 @@
-<img src="/assets/images/blocjams.png" alt='Jangle Mobile App'>
+<img src="app/assets/images/blocjams.png" alt='Jangle Mobile App'>
 
 ## Explanation
 
@@ -14,25 +14,25 @@ Throughout the project, I used an editor, Atom, to build the backbone of the app
 
 <em>Phase I: Native JavaScript</em>
 
-<img src="/assets/images/bloc-jams-JS.png" alt='Jangle JavaScript'>
+<img src="app/assets/images/bloc-jams-JS.png" alt='Jangle JavaScript'>
 
 <em>Phase II: jQuery</em>
 
-<img src="/assets/images/bloc-jams-jQ.png" alt='Jangle jQuery'>
+<img src="app/assets/images/bloc-jams-jQ.png" alt='Jangle jQuery'>
 
 <em>Phase III: AngularJS</em>
 
 <p>Home.html Template</p>
 
-<img src="/assets/images/bloc-jams-angular-1.png" alt='Jangle Angular Template'>
+<img src="app/assets/images/bloc-jams-angular-1.png" alt='Jangle Angular Template'>
 
 <p>Home Controller</p>
 
-<img src="/assets/images/bloc-jams-angular-2.png" alt='Jangle Angular Controller'>
+<img src="app/assets/images/bloc-jams-angular-2.png" alt='Jangle Angular Controller'>
 
 No music player would be complete without the ability to play audio files.
 
-<img src="/assets/images/bloc-jams-JS-player.png">
+<img src="app/assets/images/bloc-jams-JS-player.png">
 
 ## Results
 
